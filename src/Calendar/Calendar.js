@@ -11,7 +11,7 @@ function Calendar() {
   return (
     <div className="Calendar">
       <div className="cal_header">
-        <Header value={state} setvalue={setstate} />
+        <Header value={state} setvalue={setstate} moment={moment} />
       </div>
       <div className="cal_body">
         <CalendarBody value={state} setvalue={setstate} />

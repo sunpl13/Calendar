@@ -2,8 +2,7 @@ import React from "react";
 import "../Scss/calendar.scss";
 
 function Header(props) {
-  const { value, setvalue } = props; //비구조할당
-  const date = new Date();
+  const { value, setvalue, moment } = props; //비구조할당
 
   function currentMonth() {
     //이번달
@@ -22,25 +21,21 @@ function Header(props) {
     return value.clone().add(1, "month");
   }
 
-  function thisMonth() {
-    return value.isSame(date, "month");
-  }
-
   return (
     <div className="Header">
-      <div className="prev" onClick={() => setvalue(prevMonth())}>
-        {!thisMonth() ? (
-          <span class="active">&lt; </span>
-        ) : (
-          <span class="deactive">&lt; </span>
-        )}
+      <div className="info">
+        <div className="prev" onClick={() => setvalue(prevMonth())}>
+          <span className="active">&lt; </span>
+        </div>
+        <div className="current">
+          {currentYear()}년 {currentMonth()}월
+        </div>
+        <div className="next" onClick={() => setvalue(nextMonth())}>
+          &gt;
+        </div>
       </div>
-      <div className="current">
-        {currentYear()}년 {currentMonth()}월
-      </div>
-      <div className="next" onClick={() => setvalue(nextMonth())}>
-        {" "}
-        &gt;
+      <div className="return_btn">
+        <button onClick={() => setvalue(moment())}>오늘</button>
       </div>
     </div>
   );
