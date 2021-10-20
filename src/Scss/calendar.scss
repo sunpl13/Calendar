@@ -1,0 +1,58 @@
+.Calendar {
+  width: 430px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background: white;
+  .cal_header {
+    height: 45px;
+  }
+  .cal_body {
+    height: 415px;
+  }
+}
+
+//캘린더 헤더
+.Header {
+  width: 430px;
+  height: 45px;
+  display: flex;
+}
+
+//캘린더 몸체
+.Calendar_Body {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 12px 5px 12px 5px;
+
+  .weekName {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    position: relative;
+    margin: 5px auto;
+  }
+
+  .month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    position: relative;
+    margin: 5px auto;
+
+    .day_container {
+      width: 50px;
+      height: 50px;
+      padding: 1px;
+      border: 1px solid #e1e1e1;
+      border-radius: 5px;
+
+      .day {
+        display: flex;
+        margin-top: 3px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
