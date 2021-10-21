@@ -14,7 +14,7 @@ function Calendar() {
         <Header value={state} setvalue={setstate} moment={moment} />
       </div>
       <div className="cal_body">
-        <CalendarBody value={state} setvalue={setstate} />
+        <CalendarBody value={state} setvalue={setstate} moment={moment} />
       </div>
     </div>
   );

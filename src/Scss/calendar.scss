@@ -1,3 +1,4 @@
+@import "./App.scss";
 //색 정의하기
 //selcted 함수로 정해놓기
 
@@ -7,7 +8,6 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background: white;
   .cal_header {
     height: 45px;
   }
@@ -19,36 +19,72 @@
 //캘린더 헤더
 .Header {
   width: 430px;
-  height: 45px;
+  height: 35px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
   .info {
     display: flex;
   }
 
+  input {
+    height: 1.5rem;
+    width: 150px;
+    border: 1px solid none;
+    border-radius: 4px;
+    margin: 7px 10px 0 10px;
+  }
   .prev {
     margin-left: 10px;
     cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 400;
+    &:hover {
+      @include hover;
+    }
   }
 
   .current {
     margin: 0 20px;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 350;
+    cursor: pointer;
+
+    &:hover {
+      @include hover;
+    }
   }
   .next {
     cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 400;
+    &:hover {
+      @include hover;
+    }
   }
   .return_btn {
     margin-right: 10px;
+    @include button($LightSky);
+    border-radius: 7px;
+    cursor: pointer;
+    &:hover {
+      @include hover;
+      background-color: $LightSky;
+      color: white;
+    }
+  }
+
+  .none {
+    display: none;
   }
 }
 
 //캘린더 몸체
 .Calendar_Body {
-  border: 1px solid black;
+  border: 1px solid $SkyBlue;
   border-radius: 10px;
   padding: 12px 5px 12px 5px;
+  background: white;
 
   .weekName {
     display: grid;
@@ -56,6 +92,7 @@
     grid-gap: 5px;
     position: relative;
     margin: 5px auto;
+    font-weight: 600;
   }
 
   .month {
@@ -66,21 +103,15 @@
     margin: 5px auto;
 
     .selected {
-      width: 50px;
-      height: 50px;
-      padding: 1px;
-      border: 1px solid blue;
-      border-radius: 5px;
-      cursor: pointer;
+      @include border(2px, $SkyBlue);
     }
 
     .day_container {
-      width: 50px;
-      height: 50px;
-      padding: 1px;
-      border: 1px solid white;
-      border-radius: 5px;
-      cursor: pointer;
+      @include border(2px, white);
+
+      &:hover {
+        @include border(2px, $Sky);
+      }
     }
   }
 
@@ -90,10 +121,30 @@
   .sat {
     color: blue;
   }
+  .today {
+    display: flex;
+    margin-top: 3px;
+    width: 25px;
+    height: 25px;
+    font-weight: 600;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: $LightSky;
+    color: white;
+  }
   .day {
     display: flex;
     margin-top: 3px;
-    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    font-weight: 600;
+    border: 1px solid white;
+    border-radius: 5px;
+
+    span {
+      margin-left: 3px;
+      float: right;
+    }
   }
 
   .not_day {

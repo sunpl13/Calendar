@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Build from "./Build";
 
 function CalendarBody(props) {
-  const { value, setvalue } = props;
+  const { value, setvalue, moment } = props;
   const [calendar, setcalendar] = useState([]); //달력 몸체 배열 생성
   const date = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const today = value.format("YYYYMMDD");
@@ -17,6 +17,14 @@ function CalendarBody(props) {
       return " sun";
     } else if (idx === 6) {
       return " sat";
+    } else {
+      return "";
+    }
+  };
+
+  const findToday = (day) => {
+    if (day === moment().format("YYYYMMDD")) {
+      return " today";
     } else {
       return "";
     }
@@ -39,8 +47,12 @@ function CalendarBody(props) {
                     setvalue(item);
                   }}
                 >
-                  <div className={"day" + name(idx)}>
-                    {item.format("D").toString()}
+                  <div
+                    className={
+                      "day" + name(idx) + findToday(item.format("YYYYMMDD"))
+                    }
+                  >
+                    <span>{item.format("D").toString()}</span>
                   </div>
                 </div>
               );
@@ -54,8 +66,14 @@ function CalendarBody(props) {
                     setvalue(item);
                   }}
                 >
-                  <div className={"day not_day" + name(idx)}>
-                    {item.format("D").toString()}
+                  <div
+                    className={
+                      "day not_day" +
+                      name(idx) +
+                      findToday(item.format("YYYYMMDD"))
+                    }
+                  >
+                    <span>{item.format("D").toString()}</span>
                   </div>
                 </div>
               );
@@ -68,8 +86,12 @@ function CalendarBody(props) {
                     setvalue(item);
                   }}
                 >
-                  <div className={"day" + name(idx)}>
-                    {item.format("D").toString()}
+                  <div
+                    className={
+                      "day" + name(idx) + findToday(item.format("YYYYMMDD"))
+                    }
+                  >
+                    <span> {item.format("D").toString()}</span>
                   </div>
                 </div>
               );

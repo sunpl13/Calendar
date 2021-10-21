@@ -9,3 +9,36 @@
     margin-top: 100px;
   }
 }
+
+//색상 타입 지정
+$SkyBlue: #2e8fe4;
+$LightSky: #63aff1;
+$SkyBlue-: #5fc3e4;
+$Sky: #b3edfa;
+$Sky-: #9de5f5;
+$WhiteGray: #e3e3e3;
+$Gray: #c2c2c2;
+$DarkGray: #999999;
+
+//달력 날짜모양 모양 지정
+@mixin border($border-weight, $border-color) {
+  width: 50px;
+  height: 50px;
+  padding: 1px;
+  border: $border-weight solid $border-color;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+//버튼 모양 지정
+@mixin button($color) {
+  border: 1px solid $color;
+  background-color: white;
+  color: $color;
+  padding: 5px;
+}
+
+//hover시 움직임
+@mixin hover {
+  transform: translate(1px, 1px);
+}
