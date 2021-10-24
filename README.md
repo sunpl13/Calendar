@@ -1,4 +1,4 @@
-rㅠ# 📆Calendar App
+# 📆Calendar App
 
 ## **💬소개**
 
