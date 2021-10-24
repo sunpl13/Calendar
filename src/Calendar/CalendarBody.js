@@ -22,6 +22,7 @@ function CalendarBody(props) {
     }
   };
 
+  //오늘 날짜를 찾는다면 날짜에 배경색을 색칠하는 함수
   const findToday = (day) => {
     if (day === moment().format("YYYYMMDD")) {
       return " today";
